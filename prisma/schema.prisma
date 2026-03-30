@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Copy {
+  id        String   @id @default(cuid())
+  text      String
+  company   String
+  imageUrl  String?
+  type      String   // "image" | "text"
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
